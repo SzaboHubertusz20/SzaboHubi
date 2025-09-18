@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 app.use(bodyParser.json());
 app.use(cors());
 const port = 3000;
@@ -12,11 +13,11 @@ app.listen(port, () => {
 });
 
 const db = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    port: 3307,
-    password: '',
-    database: 'kozutak'
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 }); 
 
 app.get('/', (req, res) => {
