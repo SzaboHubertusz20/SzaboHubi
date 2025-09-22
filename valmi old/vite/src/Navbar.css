@@ -1,0 +1,47 @@
+colgroup
+{
+  border: 1px solid black;
+}
+table
+{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+td, th
+{
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
+th
+{
+  background-color: #f2f2f2;
+}
+a
+{
+  text-decoration: none;
+  color: black;
+}
+a:hover
+{
+  color: blue;
+}
+nav
+{
+  background-color: #e3f2fd;
+  padding: 10px;
+}
+nav a
+{
+  margin: 0 10px;
+  font-weight: bold;
+}
+nav a:hover
+{
+  text-decoration: underline;
+}
+nav .active
+{
+  text-decoration: underline;
+  color: blue;
+}
