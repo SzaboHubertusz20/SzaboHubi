@@ -16,9 +16,19 @@ const db = mysql.createConnection({
     host:"localhost",
     port:3307,
     password:"",
-    database:""
+    database:"fogado"
 }); 
 
 app.get('/', (req, res) => {
     res.send('Fut a backend!')
+});
+app.get('/szobak', (req, res) => {
+    const sql = 'SELECT sznev,agy FROM szobak;';
+    db.query(sql, (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results);
+    }
+    );
 });
