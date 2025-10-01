@@ -1,0 +1,21 @@
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-table th {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f0f0f0;
+  }
+  
+  .user-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .no-users {
+    text-align: center;
+  }
+  

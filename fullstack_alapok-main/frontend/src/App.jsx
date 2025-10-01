@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { getUsers, createUser, updateUser, deleteUser } from './Componens/api';
 import UserForm from './Componens/UserForm';
 import UserTable from './Componens/UserTable';
@@ -58,13 +59,31 @@ function App() {
   if (error) return <p style={{color: 'red'}}>{error}</p>;
 
   return (
-    <div className="App">
-      <h1>Felhasználókezelő (Full-Stack CRUD)</h1>
-      <UserForm onAdd={handleAdd} />
-      <hr />
-      <h2>Felhasználók Listája</h2>
-      <UserTable users={users} onDelete={handleDelete} onUpdate={handleUpdate} />
-    </div>
+    <Router>
+      <div className="App">
+        <nav>
+          <ul>
+            <li><Link to="/">Felhasználók Listája</Link></li>
+            <li><Link to="/add-user">Felhasználó Hozzáadása</Link></li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <h2>Felhasználók Listája</h2>
+                <UserTable users={users} onDelete={handleDelete} onUpdate={handleUpdate} />
+              </>
+            }
+          />
+          <Route
+            path="/add-user"
+            element={<UserForm onAdd={handleAdd} />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
